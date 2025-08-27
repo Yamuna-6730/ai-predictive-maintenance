@@ -24,18 +24,31 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 ---
 
 ## 📂 Folder Structure
+```
 
-ai_predictive_maintenance/
-│── data/
+ ai_predictive_maintenance/
+├── data/ 
 │ ├── raw/ # Original CMAPSS dataset files (train, test, RUL)
 │ └── processed/ # Cleaned CSVs with RUL column added
 │
-│── notebooks/
-│ ├── 01_data_preprocessing.ipynb # Week 1 work
+├── notebooks/ 
+│ ├── 01_data_preprocessing.ipynb #  Load, clean, RUL, EDA
+│ ├── 02_baseline_models.ipynb #  ML baseline models
+│ ├── 03_deep_learning_models.ipynb #  LSTM/TCN models
+│ ├── 04_dashboard_and_outputs.ipynb # Dashboard & visualization
 │
-│── outputs/
-│ └── figures/ # Plots (RUL distributions, sensor trends)
+├── utils/ 
+│ ├── data_pipeline.py # Functions to load & clean data
+│ ├── feature_engineering.py # Feature extraction functions
+│ └── visualization.py # Plotting utilities
+│
+├── outputs/ 
+│ ├── models/ # Trained models (.pkl, .pt)
+│ └── figures/ # Plots and charts
+│
+└── README.md # Project documentation
 
+```
 
 ---
 
