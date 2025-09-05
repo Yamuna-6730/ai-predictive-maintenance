@@ -113,7 +113,7 @@ Below is a simplified comparison summary:
 
 ---
 
-## 🚀 Next Steps
+## Final Steps
 - Extend from **classification** to **regression RUL prediction**.  
 - Hyperparameter optimization for Random Forest.  
 - Build an **interactive dashboard** to monitor engine health.  
@@ -124,6 +124,6 @@ Below is a simplified comparison summary:
 ## 👨‍💻 Author
 **Yamuna L**  
 Engineering Student specializing in Data Science  
-(Work done as part of AI Predictive Maintenance project challenge)
+(Work done as part of AI Predictive Maintenance project challenge for Edunet AICTE shell Internship)
 
 
