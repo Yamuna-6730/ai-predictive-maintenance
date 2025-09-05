@@ -33,8 +33,9 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 │
 ├── notebooks/ 
 │ ├── 01_data_preprocessing.ipynb #  Load, clean, RUL, EDA
-│ ├── 02_baseline_models.ipynb #  ML baseline models
-│ ├── 03_deep_learning_models.ipynb #  LSTM/TCN models
+│ ├── 02_baseline_models.ipynb #  ML baseline models (LGBM, XGBoost, Random forest)
+│ ├── random_forest_pipeline.ipynb #  Random forest model
+│ ├── deep_learning_comparison.ipynb #  LSTM/TCN models
 │ ├── 04_dashboard_and_outputs.ipynb # Dashboard & visualization
 │
 ├── utils/ 
@@ -52,29 +53,77 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 
 ---
 
-## 📊 Week 1 Progress – Data Preprocessing & EDA
-
-1. **Loaded raw data** (`train_FD00x.txt`, `test_FD00x.txt`, `RUL_FD00x.txt`).  
-2. **Assigned column names**:  
-   - `unit_number`, `time_in_cycles`, 3 operational settings, and 21 sensor measurements.  
-3. **Computed RUL (Remaining Useful Life)** for training data:  
-   - `RUL = max_cycle_per_engine - current_cycle`.  
-4. **Saved preprocessed datasets** as CSV files in `data/processed/`.  
-5. **EDA (Exploratory Data Analysis)**:  
-   - RUL distribution histograms.  
-   - Sensor signal plots for individual engines (e.g., Engine 1).  
 
 ---
 
-## ✅ Outputs (Week 1)
+## 📊 Work Done So Far
 
-- **Processed CSVs**:  
-  - `train_FD001.csv`, `test_FD001.csv`, `rul_FD001.csv`  
-  - `train_FD002.csv`, … up to FD004  
-- **Figures** (in `outputs/figures/`):  
-  - `rul_distribution_FD001.png`  
-  - `engine1_sensors.png`  
+✔️ **Data Preprocessing & Feature Engineering**
+- Loaded all **FD001–FD004** CMAPSS datasets.  
+- Added **Remaining Useful Life (RUL)** for each unit.  
+- Created **binary near-failure label** (`1 if RUL ≤ 30 else 0`).  
+- Saved clean processed data for modeling.  
+
+✔️ **Exploratory Data Analysis**
+- Visualized RUL distributions.  
+- Plotted sample sensor signals to observe degradation patterns.  
+
+✔️ **Baseline ML Models**
+- Implemented and compared **Random Forest, XGBoost, and LightGBM**.  
+- Reason: These **tree-based models** are strong baselines for tabular sensor data.  
+
+✔️ **Deep Learning Models**
+- Implemented **LSTM** (sequence learning) and **TCN** (temporal convolutions).  
+- Reason: To test if **temporal dependencies** improve prediction accuracy compared to ML baselines.  
+
+✔️ **Model Comparison & Selection**
+- Evaluated models on **Accuracy, Precision, Recall, and F1 score**.  
+- Random Forest consistently provided **best balance of metrics** across datasets.  
 
 ---
+
+## 🔍 Why Compare Multiple Models?
+
+- **Random Forest** → Robust, interpretable, less overfitting.  
+- **XGBoost** → Popular boosting method, often state-of-the-art on tabular data.  
+- **LightGBM** → Faster boosting, optimized for large-scale datasets.  
+- **LSTM / TCN** → Capture sequential dependencies in sensor readings.  
+
+Comparing both **ML baselines and DL models** ensures we don’t miss potential improvements.
+
+---
+
+## 🏆 Model Selection
+
+After evaluating on **FD001–FD004**, Random Forest emerged as the **best overall model**.  
+Below is a simplified comparison summary:
+
+| Model          | Accuracy | Precision | Recall | F1 Score | Notes |
+|----------------|----------|-----------|--------|----------|-------|
+| **Random Forest** | ✅ Highest & stable | ✅ High | ✅ Balanced | ✅ Best overall | **Selected** |
+| XGBoost        | High     | High      | Slightly lower | Good | Close, but less consistent |
+| LightGBM       | High     | Moderate  | Moderate | Good | Similar to XGBoost |
+| LSTM           | Moderate | Good      | Lower   | Lower | Slower, heavy training |
+| TCN            | Moderate | Good      | Lower   | Lower | Similar to LSTM |
+
+👉 **Final Choice:** **Random Forest Classifier**  
+- Reliable performance across all datasets.  
+- Computationally efficient and interpretable.  
+- Outperformed or matched deep learning models in this case.  
+
+---
+
+## 🚀 Next Steps
+- Extend from **classification** to **regression RUL prediction**.  
+- Hyperparameter optimization for Random Forest.  
+- Build an **interactive dashboard** to monitor engine health.  
+- Deploy trained model in an **end-to-end pipeline**.  
+
+---
+
+## 👨‍💻 Author
+**Yamuna L**  
+Engineering Student specializing in Data Science  
+(Work done as part of AI Predictive Maintenance project challenge)
 
 
