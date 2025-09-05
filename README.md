@@ -13,13 +13,22 @@ This project applies **AI and Machine Learning** techniques to predict **Remaini
 **Proposed Solution:**  
 - Train ML models (baseline and deep learning) on sensor and operational data.  
 - Use time-series modeling to predict RUL for each engine.  
-- Output alerts like: “Engine X likely to fail in Y cycles”.  
+- Output alerts like: “Engine X likely to fail”.  
 - Helps reduce downtime and maintenance costs.
 
 ---
 
-This project uses the **CMAPSS Turbofan Engine Degradation Simulation Dataset** for building machine learning models to predict the **Remaining Useful Life (RUL)** of engines.  
-The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
+## 🚀 Dashboard Preview
+![Dashboard Screenshot](images/1.png)
+![Dashboard Screenshot](images/2.png)
+
+---
+
+## 📊 Dataset
+This project uses the **NASA Turbofan Jet Engine Data Set** for building machine learning models to predict the **Remaining Useful Life (RUL)** of engines. 
+- **Dataset:** - [Kaggle CMAPSS Dataset](https://www.kaggle.com/datasets/behrad3d/nasa-cmaps)
+- The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
+- Data contains **sensor readings**, operational settings, and engine lifecycle.
 
 ---
 
@@ -27,6 +36,7 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 ```
 
  ai_predictive_maintenance/
+├── app.py # for dashboard 
 ├── data/ 
 │ ├── raw/ # Original CMAPSS dataset files (train, test, RUL)
 │ └── processed/ # Cleaned CSVs with RUL column added
@@ -36,7 +46,6 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 │ ├── 02_baseline_models.ipynb #  ML baseline models (LGBM, XGBoost, Random forest)
 │ ├── random_forest_pipeline.ipynb #  Random forest model
 │ ├── deep_learning_comparison.ipynb #  LSTM/TCN models
-│ ├── 04_dashboard_and_outputs.ipynb # Dashboard & visualization
 │
 ├── utils/ 
 │ ├── data_pipeline.py # Functions to load & clean data
@@ -56,7 +65,7 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 
 ---
 
-## 📊 Work Done So Far
+## Steps Completed
 
 ✔️ **Data Preprocessing & Feature Engineering**
 - Loaded all **FD001–FD004** CMAPSS datasets.  
@@ -79,17 +88,6 @@ The dataset consists of four subsets: **FD001, FD002, FD003, FD004**.
 ✔️ **Model Comparison & Selection**
 - Evaluated models on **Accuracy, Precision, Recall, and F1 score**.  
 - Random Forest consistently provided **best balance of metrics** across datasets.  
-
----
-
-## 🔍 Why Compare Multiple Models?
-
-- **Random Forest** → Robust, interpretable, less overfitting.  
-- **XGBoost** → Popular boosting method, often state-of-the-art on tabular data.  
-- **LightGBM** → Faster boosting, optimized for large-scale datasets.  
-- **LSTM / TCN** → Capture sequential dependencies in sensor readings.  
-
-Comparing both **ML baselines and DL models** ensures we don’t miss potential improvements.
 
 ---
 
@@ -116,12 +114,23 @@ Below is a simplified comparison summary:
 ## Final Steps
 - Extend from **classification** to **regression RUL prediction**.  
 - Hyperparameter optimization for Random Forest.  
-- Build an **interactive dashboard** to monitor engine health.  
+- Build an **interactive dashboard** to monitor engine health using **streamlit**.  
 - Deploy trained model in an **end-to-end pipeline**.  
 
 ---
 
-## 👨‍💻 Author
+## 🚀 Quick Start
+1. **Clone the repository:** - git clone https://github.com/Yamuna23071A6730/ai-predictive-maintenance.git
+2. **Create a virtual environment and install dependencies:** -
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+3. **Run the Streamlit dashboard:** - streamlit run app.py
+
+
+---
+
+## Author
 **Yamuna L**  
 Engineering Student specializing in Data Science  
 (Work done as part of AI Predictive Maintenance project challenge for Edunet AICTE shell Internship)
