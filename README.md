@@ -2,7 +2,7 @@
 
 ## 📝 Project Overview
 Unexpected failures in energy infrastructure components like **turbines, transformers, and solar panels** lead to **loss of energy and high maintenance costs**.  
-This project applies **AI and Machine Learning** techniques to predict **Remaining Useful Life (RUL)** of engines, helping to schedule **predictive maintenance** before failures occur.  
+This project applies **AI and Machine Learning** techniques to predict **Remaining Useful Life (RUL)** of engines, helping to schedule **predictive maintenance** before failures occur. By doing so, it supports more reliable and **sustainable energy** production while minimizing environmental impact. 
 
 **Problem Statement:**  
 - Predict how many operational cycles remain before an engine fails.  
