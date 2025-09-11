@@ -1,5 +1,9 @@
 # AI Predictive Maintenance
 
+## 🚀 Live Demo
+
+[View the AI Predictive Maintenance Demo](https://ai-predictive-maintenance-for-machines.streamlit.app/)
+
 ## 📝 Project Overview
 Unexpected failures in energy infrastructure components like **turbines, transformers, and solar panels** lead to **loss of energy and high maintenance costs**.  
 This project applies **AI and Machine Learning** techniques to predict **Remaining Useful Life (RUL)** of engines, helping to schedule **predictive maintenance** before failures occur. By doing so, it supports more reliable and **sustainable energy** production while minimizing environmental impact. 
